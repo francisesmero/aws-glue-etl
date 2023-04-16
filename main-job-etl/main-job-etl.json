@@ -1,0 +1,31 @@
+{
+  "name" : "main-job-etl",
+  "description" : "",
+  "role" : "arn:aws:iam::561712037441:role/aws-etl-data-engineer",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "pythonshell",
+    "scriptLocation" : "s3://aws-glue-assets-561712037441-ap-southeast-1/scripts/main-job-etl.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-job-insights" : "false",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-561712037441-ap-southeast-1/temporary/",
+    "--enable-glue-datacatalog" : "true"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 0,
+  "timeout" : 2880,
+  "maxCapacity" : 0.0625,
+  "glueVersion" : "1.0",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "aws-glue-etl",
+    "branch" : "master",
+    "folder" : "main-job-etl"
+  }
+}
